@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Inject, Optional, PLATFORM_ID} from '@angular/core';
+import {LocationStrategy} from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular6web';
+
+  constructor(private locationStrategy: LocationStrategy,  @Inject(PLATFORM_ID) platformId: any ) {
+    console.log(locationStrategy.getBaseHref());
+    console.log(platformId);
+  }
 }
